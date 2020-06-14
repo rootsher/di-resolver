@@ -1,0 +1,26 @@
+{
+  "name": "typed-di-container",
+  "version": "0.1.0",
+  "description": "Typed Dependency Injection Container",
+  "main": "lib/index.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/rootsher/typed-di-container.git"
+  },
+  "keywords": [
+    "typed",
+    "dependency",
+    "injection",
+    "container"
+  ],
+  "author": "Konrad Kowalski <rootsher@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rootsher/typed-di-container/issues"
+  },
+  "homepage": "https://github.com/rootsher/typed-di-container#readme"
+}
