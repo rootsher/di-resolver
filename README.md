@@ -1,16 +1,17 @@
-# typed-di-container
+# @rootsher/di-resolver
 
 ## installation
 
 ```sh
-$ npm install typed-di-container
+$ npm install @rootsher/di-resolver
 ```
 
 ## example usage
 
-```ts
-import { Resolver } from 'typed-di-container';
+* define class A:
 
+```ts
+// [A]
 class A {
     private value: number = 1;
 
@@ -18,29 +19,47 @@ class A {
         return this.value;
     }
 }
+```
 
+* define class B:
+
+```ts
+// [B, { deps: [A] }]
 class B {
-    private instanceA: A;
+    private a: A;
 
-    constructor(instanceA: A) {
-        this.instanceA = instanceA;
+    constructor(a: A) {
+        this.a = a;
     }
 
     callAMethod(): number {
-        return this.instanceA.method();
+        return this.a.method();
     }
 }
+```
 
+* define class C:
+
+```ts
+// [C, { deps: [B, A] }]
 class C {
     public value: number = 2;
+
+    constructor(private b: B, a: A) {}
 
     method({ value }: { value: number }) {
         this.value = value;
     }
 }
+```
+
+* create dependency injection container definitions:
+
+```ts
+import { Resolver } from 'typed-di-container';
 
 const resolver = new Resolver([
-    [A, {}],
+    [A],
     [
         B,
         { deps: [A] }
@@ -55,7 +74,11 @@ const resolver = new Resolver([
         }
     ]
 ]);
+```
 
+* simple access to instances (`resolver.get([class])`):
+
+```ts
 console.log(resolver.get(B).callAMethod()); // 1
 console.log(resolver.get(C).value); // 15
 ```

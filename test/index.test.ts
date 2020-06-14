@@ -1,4 +1,4 @@
-import { Resolver } from 'typed-di-container';
+import { Resolver } from '@rootsher/di-resolver';
 
 class A {
     private value: number = 1;
@@ -9,19 +9,21 @@ class A {
 }
 
 class B {
-    private instanceA: A;
+    private a: A;
 
-    constructor(instanceA: A) {
-        this.instanceA = instanceA;
+    constructor(a: A) {
+        this.a = a;
     }
 
     callAMethod(): number {
-        return this.instanceA.method();
+        return this.a.method();
     }
 }
 
 class C {
     public value: number = 2;
+
+    constructor(private b: B, a: A) {}
 
     method({ value }: { value: number }) {
         this.value = value;

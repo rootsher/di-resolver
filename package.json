@@ -1,5 +1,5 @@
 {
-  "name": "typed-di-container",
+  "name": "@rootsher/di-resolver",
   "version": "0.1.0",
   "description": "Typed Dependency Injection Container",
   "main": "lib/index.ts",
@@ -9,18 +9,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/rootsher/typed-di-container.git"
+    "url": "git+ssh://git@github.com/rootsher/di-resolver.git"
   },
   "keywords": [
     "typed",
+    "di",
     "dependency",
     "injection",
-    "container"
+    "container",
+    "resolver"
   ],
   "author": "Konrad Kowalski <rootsher@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rootsher/typed-di-container/issues"
+    "url": "https://github.com/rootsher/di-resolver/issues"
   },
-  "homepage": "https://github.com/rootsher/typed-di-container#readme"
+  "homepage": "https://github.com/rootsher/di-resolver#readme"
 }
